@@ -1,0 +1,49 @@
+.auth__form{
+    background: #fff;
+    color: var(--primary-color);
+    padding: 40px;
+    border-radius: 5px;
+}
+
+.auth__btn{
+    background: var(--primary-color) !important;
+    color:#fff;
+    font-weight: 600;
+}
+
+.auth__form p {
+    margin-top: 30px;
+}
+
+.auth__form input[type="file"]{
+    cursor: pointer;
+}
+
+.image-container{
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+  }
+  
+  
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .picture-img {
+    width: 190px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 50px;
+    border-radius: 50px;
+  }
+
+
+  .idcard{
+    margin-top: 20px;
+  }
