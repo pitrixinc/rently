@@ -51,7 +51,10 @@ const Home = () => {
     setWirelessProducts(filteredWirelessProducts);
     setPopularProducts(filteredPopularProducts);
   }, [products]);
+
+  const { data: appearancesData} = useGetData ('appearance');
   
+
   return (
     <Helmet title={'Home'}>
       <section className="hero__section">
@@ -59,9 +62,44 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className="hero__content">
-                  <p className="hero__subtitle">Trending products in {year} </p>
-                  <h2>Make Your Interior More Minimalistic & Modern </h2>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse aliquid et natus. Est illo ab placeat doloribus fugiat inventore cumque repellat fugit unde. Odit atque asperiores ratione architecto dolore cumque.</p>
+                  <p className="hero__subtitle">{
+                   (appearancesData.map(item=>(
+                    <tr key={item.id}>
+                  
+                  <td>{item.shortDesc}</td>
+                  
+                  
+                </tr>
+                  ))
+                )} {year} </p>
+
+
+                  <h2>
+                  {
+                   (appearancesData.map(item=>(
+                    <tr key={item.id}>
+                  
+                  <td>{item.description}</td>
+                  
+                  
+                </tr>
+                  ))
+                )}
+                  </h2>
+
+
+                  <p>
+                  {
+                   (appearancesData.map(item=>(
+                    <tr key={item.id}>
+                  
+                  <td>{item.bannerDesc}</td>
+                  
+                  
+                </tr>
+                  ))
+                )}
+                  </p>
 
                   <motion.button whileTap={{ scale: 1.2 }} className="buy__btn"><Link to='/shop'>Shop Now</Link></motion.button>
               </div>
@@ -69,7 +107,20 @@ const Home = () => {
 
             <Col lg='6' md='6'>
               <div className="hero__img">
-                <motion.img whileHover={{ scale: 0.7 }} src={heroImg} alt="" />
+              {
+                (appearancesData.map(item=>(
+                  <tr key={item.id}>
+                
+                <td>
+                  <motion.img whileHover={{ scale: 0.7 }} src={item.bannerLogoUrl} alt="" />
+                </td>
+                
+                
+              </tr>
+                ))
+              )
+              }
+                {/*<motion.img whileHover={{ scale: 0.7 }} src={heroImg} alt="" /> */}
               </div>
             </Col>
           </Row>
@@ -125,7 +176,19 @@ const Home = () => {
 
             <Col lg='6' md='12'
              className="text-end counter__img">
-              <img src={counterImg} alt="" />
+              {
+                (appearancesData.map(item=>(
+                  <tr key={item.id}>
+                
+                <td>
+                  <img src={item.limitedLogoUrl} alt="" />
+                </td>
+                
+                
+              </tr>
+                ))
+              )
+              }
             </Col>
           </Row>
         </Container>

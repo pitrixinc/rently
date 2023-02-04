@@ -12,6 +12,10 @@ const admin__nav = [
         path: '/dashboard'
     },
     {
+        display: 'Site-Appearance',
+        path: '/dashboard/site-appearance'
+    },
+    {
         display: 'Add-Products',
         path: '/dashboard/add-product'
     },

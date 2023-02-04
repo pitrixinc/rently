@@ -14,6 +14,9 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase.config';
 import { toast } from 'react-toastify';
 
+import {db} from '../../firebase.config';
+import useGetData from '../../custom-hooks/useGetData';
+
 const nav__links = [
   {
     path:'home',
@@ -29,11 +32,14 @@ const nav__links = [
   },
 ];
 
+
+
 const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector(state=> state.cart.totalQuantity);
   const profileActionRef = useRef(null);
   const [showProfileActions, setShowProfileActions] = useState(false);
+  const [data, setData] = useState({});
 
 
 
@@ -81,15 +87,41 @@ const Header = () => {
     setShowProfileActions(!showProfileActions);
   };
 
+
+  const { data: appearancesData, loading} = useGetData ('appearance');
+
+
+
   return (
   <header className="header" ref={headerRef}>
       <Container>
         <Row>
           <div className="nav__wrapper">
             <div className="logo">
-              <img src={logo} alt="logo" />
+              {
+                (appearancesData.map(item=>(
+                  <tr key={item.id}>
+                
+                <td>
+                  <img src={item.siteLogoUrl} alt="" />
+                </td>
+                
+                
+              </tr>
+                ))
+              )
+              }
               <div>
-                <h1>Rently</h1>
+                <h1>{
+                   (appearancesData.map(item=>(
+                    <tr key={item.id}>
+                  
+                  <td>{item.productName}</td>
+                  
+                  
+                </tr>
+                  ))
+                )}</h1>
                 
               </div>
             </div>
@@ -169,4 +201,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
