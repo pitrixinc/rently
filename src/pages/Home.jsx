@@ -4,12 +4,12 @@ import { motion } from "framer-motion"
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
 
-import heroImg from '../assets/images/hero-img.png'
+import heroImg from '../assets/images/foto.png'
 import "../styles/home.css";
 import Services from '../services/Services';
 import ProductsList from '../components/UI/ProductsList';
 import Clock from '../components/UI/Clock';
-import counterImg from '../assets/images/counter-timer-img.png';
+import counterImg from '../assets/images/time.png';
 import useGetData from '../custom-hooks/useGetData';
 
 const Home = () => {
