@@ -21,7 +21,7 @@ const nav__links = [
   },
   {
     path:'shop',
-    display: 'Shop'
+    display: <div> Search <i class="ri-search-line"></i> </div>
   },
   {
     path:'cart',
