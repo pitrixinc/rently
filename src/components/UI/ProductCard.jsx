@@ -33,7 +33,7 @@ const ProductCard = ({item}) => {
       </div>
       <div className="p-2 product__info">
       <h6 className="product__name">
-        <Link to={`/shop/${item.id}`}>{item.productName && item.productName.substring(0, 20)}</Link>
+        <Link to={`/shop/${item.id}`}>{item.productName && item.productName.substring(0, 15)}</Link>
       </h6>
       <span>{item.category}</span>
       </div>
