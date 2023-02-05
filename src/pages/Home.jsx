@@ -66,7 +66,7 @@ const Home = () => {
                    (appearancesData.map(item=>(
                     <tr key={item.id}>
                   
-                  <td>{item.shortDesc}</td>
+                  <td>{item.shortDesc} {year}</td>
                   
                   
                 </tr>
